@@ -5,8 +5,62 @@ In this project, I implement my own custom single-layer and multi-layer neural n
 
 ## Implementation Steps
 
-### 1. Implementing Forward and Backward Propogation for a Neural Network
-I implement the equations required to calculate the derivative of the parameters during training. I implement this for both forward and backward propogation. Then I also write functions that carry out the training loop for the neural network.
+### 1. One-Neuron Classifier: Loss Function and Gradients
+
+#### Neuron Output Formula
+The output of a neuron using a **Sigmoid activation function** $g(\cdot)$ is given as:
+
+$$
+\hat{y} = g \left( \sum_{i=1}^{N} x_i a_i + b \right)
+$$
+
+where:
+- $N$ is the number of input nodes.
+- $a_i$ are the learnable weights associated with the input nodes.
+- $b$ is the learnable bias.
+- Each training sample is represented as $(x_1, x_2, \dots, x_N)$.
+- $\hat{y}$is the predicted output.
+
+#### Loss Function
+For each training sample, the loss function is computed as:
+
+$$
+L = \left[ y_{\text{gt}} - g \left( \sum_{i=1}^{N} x_i a_i + b \right) \right]^2
+$$
+
+where $y_{\text{gt}}$ is the ground truth label.
+
+#### Computing Gradients
+To update the weights during training, we compute the gradient of the loss function with respect to $a_i$:
+
+$$
+\frac{\partial L}{\partial a_i} = -2 y_{\text{err}} \frac{\partial}{\partial a_i} g \left( \sum_{i=1}^{N} x_i a_i + b \right)
+$$
+
+Using the **chain rule**, with $y_{\text{err}} = y_{\text{gt}} - \hat{y}$ and $\theta = \sum_{i=1}^{N} x_i a_i + b$:
+
+$$
+\frac{\partial L}{\partial a_i} = -2 y_{\text{err}} \frac{\partial g}{\partial \theta} x_i
+$$
+
+#### Stochastic Gradient Descent (SGD) and Averaging
+In **Stochastic Gradient Descent (SGD)**, we compute the loss over a batch of size $B$. Introducing an index $j$ to represent individual samples in a batch. The batch-based estimated loss is:
+
+$$
+L = \frac{1}{B} \sum_{j=1}^{B} \left[ y_{\text{gt}, j} - g \left( \sum_{i=1}^{N} x_{i,j} a_i + b \right) \right]^2
+$$
+
+##### Gradient with Respect to $a_i$
+The partial derivative of the batch loss with respect to $a_i$ is:
+
+$$
+\frac{\partial L}{\partial a_i} = -\frac{2}{B} \sum_{j=1}^{B} y_{\text{err}, j} \cdot \frac{\partial g}{\partial \theta} \cdot x_{i,j}
+$$
+
+where $y_{\text{err}, j} = y_{\text{gt}, j} - \hat{y}_j$.
+
+This gradient is then used in optimization algorithms like **SGD** or **Adam** to update the weights and minimize the loss function.
+
 
 ### 2. Implementing Step-Size Optimization
 After setting up the baseline models, I implemented **SGD+ and Adam** as alternative optimization methods to replace the basic gradient descent.
