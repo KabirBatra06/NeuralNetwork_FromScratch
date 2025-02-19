@@ -129,7 +129,7 @@ I generated comparative **loss vs. iteration plots** to visualize the effects of
 - Improved stability with SGD+
 - Performance sensitivity to $\beta_1$ and $\beta_2$ in Adam
 
-## Extra Credit: Data Normalization
+## Data Normalization
 To further optimize training, I examined the impact of **pixel value scaling** and **normalization** on model performance:
 
 1. **Baseline normalization** – Evaluated the effect of normalizing data using a simple rescaling approach.
