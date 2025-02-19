@@ -143,6 +143,26 @@ Performance comparisons revealed that **truncated normalization significantly im
 - **Hyperparameter tuning plays a crucial role** in optimizer performance.
 - **Data normalization techniques impact model stability and convergence speed**.
 
-## Conclusion
+## Loss for 1 Layer Network using different learning rates
 
+<p align="center">
+  <img src="https://github.com/KabirBatra06/NeuralNetwork_FromScratch/blob/main/one/single_out_001.jpg" width="320" title="img1">
+  <img src="https://github.com/KabirBatra06/NeuralNetwork_FromScratch/blob/main/one/single_out_01.jpg" width="320" title="img1">
+  <img src="https://github.com/KabirBatra06/NeuralNetwork_FromScratch/blob/main/one/single_out_1.jpg" width="320" title="img1">
+</p>
+
+## Loss for multi Layer Network using different learning rates
+
+<p align="center">
+  <img src="https://github.com/KabirBatra06/NeuralNetwork_FromScratch/blob/main/multi/multi_out_001.jpg" width="320" title="img1">
+  <img src="https://github.com/KabirBatra06/NeuralNetwork_FromScratch/blob/main/multi/multi_out_01.jpg" width="320" title="img1">
+  <img src="https://github.com/KabirBatra06/NeuralNetwork_FromScratch/blob/main/multi/multi_out_1.jpg" width="320" title="img1">
+</p>
+
+## Hyperparameter Tuning Results
+
+<p align="center">
+  <img src="https://github.com/KabirBatra06/NeuralNetwork_FromScratch/blob/main/one/beta_test_single.jpg" width="350" title="img1">
+  <img src="https://github.com/KabirBatra06/NeuralNetwork_FromScratch/blob/main/multi/beta_test_multi.jpg" width="350" title="img1">
+</p>
 
